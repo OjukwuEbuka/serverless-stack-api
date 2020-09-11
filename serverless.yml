@@ -27,16 +27,16 @@ provider:
 
   #iamRoleStatementss defines the prmissions policy for the lambda fxn
   iamRoleStatements:
-    -Effect: Allow
-    Action: 
-      -dynamodb:DescribeTable
-      -dynamodb:Query
-      -dynamodb:Scan
-      -dynamodb:GetItem
-      -dynamodb:PutItem
-      -dynamodb:UpdateItem
-      -dynamodb:DeleteItem
-    Resource: "arn:aws:dynamodb:us-east-1:127405095661:table/notes"
+    - Effect: Allow
+      Action: 
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: "arn:aws:dynamodb:us-east-1:127405095661:table/notes"
 
 functions:
   create:
