@@ -1,0 +1,11 @@
+{
+    "body": "{\"content\":\"new world, taint-free Saidin\", \"attachment\":\"newPix.jpg\"}",
+    "pathParameters": {
+        "id": "ec6d60f0-f400-11ea-90bd-6397c22b2fbb"
+    },
+    "requestContext": {
+        "identity": {
+            "cognitoIdentityId": "USER-SUB-1234"
+        }
+    }
+}

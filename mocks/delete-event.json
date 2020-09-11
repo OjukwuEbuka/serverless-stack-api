@@ -1,5 +1,7 @@
 {
-    "body": "{\"content\":\"Padan Fain-Mordeth-Ordeith\",\"attachment\":\"shadarlogoth.jpg\"}",
+    "pathParameters": {
+        "id": "0a210500-f354-11ea-8b15-23c7cbf4c021"
+    },
     "requestContext": {
         "identity": {
             "cognitoIdentityId": "USER-SUB-1234"
