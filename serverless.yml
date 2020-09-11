@@ -14,7 +14,7 @@ provider:
   name: aws
   runtime: nodejs12.x
   stage: prod
-  region: us-east-2
+  region: us-east-1
   # To load environment variables externally
   # rename env.example to .env and uncomment
   # the following line. Also, make sure to not
@@ -35,7 +35,7 @@ provider:
       -dynamodb:PutItem
       -dynamodb:UpdateItem
       -dynamodb:DeleteItem
-    Resource: "arn:aws:dynamodb:us-east-2:127405095661:table/notes"
+    Resource: "arn:aws:dynamodb:us-east-1:127405095661:table/notes"
 
 functions:
   create:
@@ -46,3 +46,23 @@ functions:
           method: post
           cors: true
           authorizer: aws_iam
+  get:
+  # Defines an HTTP API endpoint that calls the main function in get.js
+    handler: get.main
+    events: 
+      -http:
+        path: notes/{id}
+        method: get
+        cors: true
+        authorizer: aws_iam
+
+  list:
+    # Defines an HTTP API endpoint that calls the main function in list.js
+    # Lists notes belonging to a user
+    handler: list.main
+    events:
+      -http:
+        path: notes
+        method: get
+        cors: true
+        authorizer: aws_iam
