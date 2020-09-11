@@ -23,6 +23,7 @@ provider:
 
   environment:
     tableName: notes
+    stripeSecretKey: ${env:STRIPE_SECRET_KEY}
 
   #iamRoleStatementss defines the prmissions policy for the lambda fxn
   iamRoleStatements:
@@ -88,3 +89,19 @@ functions:
       method: delete
       cors: true
       authorizer: aws_iam
+
+  billing:
+    # Defines an HTTP API endpoint tht calls the main function in billing.js
+    # -path: url path is /billing
+    # -method: POST req
+    handler: billing.main
+    events:
+      -http:
+      path: billing
+      method: post
+      cors: true
+      authorizer: aws_iam
+
+# Create our resources with separate CloudFormation templates
+resources:
+  -${file(resources/api-gateway-errors.yml)}
